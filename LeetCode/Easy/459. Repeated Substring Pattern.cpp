@@ -4,9 +4,10 @@
 #include <iostream>
 using namespace std;
 
-class Solution {
+class Solution
+{
 public:
-    bool repeatedSubstringPattern(string s) {
-        
+    bool repeatedSubstringPattern(string s)
+    {
     }
 };

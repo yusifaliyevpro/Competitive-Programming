@@ -2,31 +2,39 @@
 // https://leetcode.com/problems/implement-stack-using-queues/
 
 #include <iostream>
+#include <queue>
 using namespace std;
 
-class MyStack {
+class MyStack
+{
+private:
+    queue<int> A;
+
 public:
-    MyStack() {
-        
+    MyStack()
+    {
     }
-    
-    void push(int x) {
-        
+
+    void push(int x)
+    {
+        A.push(x);
     }
-    
-    int pop() {
-        
+
+    int pop()
+    {
+        A.pop();
     }
-    
-    int top() {
-        
+
+    int top()
+    {
+        A.back();
     }
-    
-    bool empty() {
-        
+
+    bool empty()
+    {
+        return A.empty();
     }
 };
-
 /**
  * Your MyStack object will be instantiated and called as such:
  * MyStack* obj = new MyStack();

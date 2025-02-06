@@ -4,9 +4,11 @@
 #include <iostream>
 using namespace std;
 
-class Solution {
+class Solution
+{
 public:
-    bool isPowerOfTwo(int n) {
-        
+    bool isPowerOfTwo(int n)
+    {
+        return n > 0 && n && !(n & (n - 1));
     }
 };

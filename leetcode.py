@@ -12,7 +12,7 @@ response = requests.get(api_url, headers=headers)
 data = response.json()
 
 # Leetcode klasörü oluştur
-folder_name = "Hard"
+folder_name = "LLL"
 os.makedirs(folder_name, exist_ok=True)
 
 # Easy seviyesindeki ücretsiz soruları filtrele

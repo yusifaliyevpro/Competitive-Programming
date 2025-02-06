@@ -5,9 +5,10 @@
 #include <vector>
 using namespace std;
 
-class Solution {
+class Solution
+{
 public:
-    vector<string> readBinaryWatch(int turnedOn) {
-        
+    vector<string> readBinaryWatch(int turnedOn)
+    {
     }
 };

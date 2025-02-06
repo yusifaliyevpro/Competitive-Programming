@@ -5,9 +5,14 @@
 #include <vector>
 using namespace std;
 
-class Solution {
+class Solution
+{
 public:
-    int singleNumber(vector<int>& nums) {
-        
+    int singleNumber(vector<int> &nums)
+    {
+        int i = 0, t = 0;
+        for (; i < nums.size(); i++)
+            t ^= nums[i];
+        return t;
     }
 };

@@ -1,53 +1,83 @@
-#include <iostream>
-#include <vector>
+// #include <iostream>
+// #include <vector>
+// #include <algorithm>
+// using namespace std;
+
+// int main()
+// {
+//     int n = 3;
+//     vector<vector<int>> A = {{5, 4, 7}, {1, 3, 8}, {2, 9, 6}};
+
+//     vector<int> B;
+
+//     // 2D Matrixi tək massivə keçiririk. (A->B)
+//     for (int i = 0; i < n; i++)
+//         for (int j = 0; j < n; j++)
+//             B.push_back(A[i][j]);
+
+//     // Sort edirik və siyahını tərsinə çeviririk
+//     sort(B.begin(), B.end());
+//     for (int i = 0; i < n; i++)
+//         for (int j = 0; j < n; j++)
+//         {
+//             A[i][j] = *(B.end() - 1);
+//             B.pop_back();
+//         }
+//     for (auto x : A)
+//     {
+//         for (int j : x)
+//             cout << j << " ";
+//         cout << endl;
+//     }
+//     return 0;
+// }
+
+#include <bits/stdc++.h>
 using namespace std;
+
+void sort(vector<vector<int>> &v)
+{
+    int n = v.size(), m = v[0].size();
+    vector<vector<int>> vt(m, vector<int>(n));
+
+    // First sort every rows of original vector
+    for (auto &i : v)
+    {
+        sort(i.begin(), i.end());
+        reverse(i.begin(), i.end());
+    }
+
+    // Create transpose vector
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < m; j++)
+            vt[j][i] = v[i][j];
+
+    // Sort every rows of new vector (original columns
+    for (auto &i : vt)
+        sort(i.begin(), i.end());
+
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < m; j++)
+            v[i][j] = vt[j][i];
+    }
+
+    return;
+}
 
 int main()
 {
-    // (n <= m) şərti ödənilməlidir
-    vector<int> a = {1, 12, 15, 26, 38};
-    vector<int> b = {2, 13, 17, 30, 45, 60};
+    vector<vector<int>> v = {{3, 5, 3},
+                             {1, 3, 2},
+                             {7, 4, 8}};
+    sort(v);
 
-    int n = a.size(), m = b.size(); // n = 5  m = 6
-    int low = 0, high = n, i = 0;   // high = 5
-
-    while (low <= high)
+    for (auto i : v)
     {
-        i++;
-        // low = 3  high = 3
-        // Yeni low və high dəyərlərinə uyğun pivotlar təyin edirik
-        int mid1 = (low + high) / 2;       // (3 + 3)/2 = 3
-        int mid2 = (n + m + 1) / 2 - mid1; // (5 + 6 + 1)/2 - 3 = 3
-
-        // a[] massivində pivotun sol və sağındakı elementlər
-        int l1 = (mid1 == 0 ? INT_MIN : a[mid1 - 1]); // 15
-        int r1 = (mid1 == n ? INT_MAX : a[mid1]);     // 26
-
-        // b[] massivində pivotun sol və sağındakı elementlər
-        int l2 = (mid2 == 0 ? INT_MIN : b[mid2 - 1]); // 17
-        int r2 = (mid2 == m ? INT_MAX : b[mid2]);     // 30
-
-        if (l1 <= r2 && l2 <= r1)
-        {
-            cout << i << "-ci dovr";
-            // Əgər n + m cüt ədəddirsə, orta elementlərin ədədi ortasını çap edirik
-            if ((n + m) % 2 == 0)
-                cout
-                    << (max(l1, l2) + min(r1, r2)) / 2.0;
-            // n + m təkdirsə, orta elementi çap edirik
-            else
-                cout << max(l1, l2);
-            break;
-        }
-
-        // Əvvəlki if şərti düzgün olmadığı üçün a[] massivindən
-        //  daha kiçik elementlər götürməli olub-olmadığımızı yoxlayırıq
-        if (l1 > r2)         // (26 > 17) -> true
-            high = mid1 - 1; // (4 - 1) = 3
-
-        // Əks halda a[] massivindən daha böyük elementlər götürürük
-        else
-            low = mid1 + 1;
+        for (int j : i)
+            cout << j << " ";
+        cout << endl;
     }
+
     return 0;
 }

@@ -4,9 +4,10 @@
 #include <iostream>
 using namespace std;
 
-class Solution {
+class Solution
+{
 public:
-    string toHex(int num) {
-        
+    string toHex(int num)
+    {
     }
 };

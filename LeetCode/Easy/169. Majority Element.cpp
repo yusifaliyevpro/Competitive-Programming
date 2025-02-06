@@ -5,9 +5,21 @@
 #include <vector>
 using namespace std;
 
-class Solution {
+class Solution
+{
 public:
-    int majorityElement(vector<int>& nums) {
-        
+    int majorityElement(vector<int> &nums)
+    {
+        int m = 0, s = 0;
+        for (int num : nums)
+        {
+            if (m == 0)
+                s = num;
+            if (s == num)
+                m++;
+            else
+                m--;
+        }
+        return s;
     }
 };

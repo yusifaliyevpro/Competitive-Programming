@@ -5,9 +5,15 @@
 #include <vector>
 using namespace std;
 
-class Solution {
+class Solution
+{
 public:
-    int missingNumber(vector<int>& nums) {
-        
+    int missingNumber(vector<int> &nums)
+    {
+        int n = nums.size(), t = 0;
+        n = (n * (n + 1)) / 2;
+        for (int x : nums)
+            t += x;
+        return n - t;
     }
 };

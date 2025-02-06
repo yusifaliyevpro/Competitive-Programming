@@ -4,9 +4,17 @@
 #include <iostream>
 using namespace std;
 
-class Solution {
+class Solution
+{
 public:
-    int firstUniqChar(string s) {
-        
+    int firstUniqChar(string s)
+    {
+        int A[26] = {0}, i, t = s.length();
+        for (char x : s)
+            A[x - 'a']++;
+        for (i = 0; i < t; i++)
+            if (A[s[i] - 'a'] == 1)
+                return i;
+        return -1;
     }
 };
