@@ -5,9 +5,10 @@
 #include <vector>
 using namespace std;
 
-class Solution {
+class Solution
+{
 public:
-    int islandPerimeter(vector<vector<int>>& grid) {
-        
+    int islandPerimeter(vector<vector<int>> &grid)
+    {
     }
 };

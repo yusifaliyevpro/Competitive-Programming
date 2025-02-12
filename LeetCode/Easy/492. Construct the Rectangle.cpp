@@ -3,11 +3,20 @@
 
 #include <iostream>
 #include <vector>
+#include <cmath>
 using namespace std;
 
-class Solution {
+class Solution
+{
 public:
-    vector<int> constructRectangle(int area) {
-        
+    vector<int> constructRectangle(int area)
+    {
+        int W, L;
+        W = sqrt(area);
+        L = W;
+        while (area % W != 0)
+            W--;
+        L = area / W;
+        return {L, W};
     }
 };

@@ -19,10 +19,7 @@ int main()
             else if (d <= B)
                 b++;
         }
-        if (a > b)
-            cout << (a + b) / 2 * 2 << endl;
-        else
-            cout << min(a, b) * 2 << endl;
+        cout << 2 * (a > b ? (a + b) / 2 : min(a, b)) << endl;
     }
 
     return 0;

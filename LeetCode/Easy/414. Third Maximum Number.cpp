@@ -3,11 +3,15 @@
 
 #include <iostream>
 #include <vector>
+#include <set>
 using namespace std;
 
-class Solution {
+class Solution
+{
 public:
-    int thirdMax(vector<int>& nums) {
-        
+    int thirdMax(vector<int> &nums)
+    {
+        set<int, greater<int>> A(nums.begin(), nums.end());
+        return (A.size() < 3 ? *A.begin() : *next(A.begin(), 2));
     }
 };

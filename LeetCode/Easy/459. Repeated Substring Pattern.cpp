@@ -9,5 +9,7 @@ class Solution
 public:
     bool repeatedSubstringPattern(string s)
     {
+        string concat = s + s;
+        return concat.substr(1, concat.length() - 2).find(s) != string::npos;
     }
 };
