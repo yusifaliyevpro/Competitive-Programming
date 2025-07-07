@@ -1,32 +1,36 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main()
 {
-    int n, i, j, k, s = 1;
-    cin >> n;
-    int A[n][n] = {0};
-    i = 0, j = 0, k = n - 1;
-    while (s <= n * n)
+    unsigned long long x, n, t = 1;
+    cin >> x >> n;
+    // x = 2, n = 10
+    while (n != 0)
     {
-        while (j <= k)
-            A[i][j++] = s++;
-        i++, j--;
-        while (i <= k)
-            A[i++][j] = s++;
-        i--, j--;
-        while (j >= n - k - 1)
-            A[i][j--] = s++;
-        k--, j++, i--;
-        while (i >= n - k - 1)
-            A[i--][j] = s++;
-        i++, j++;
+        if (n % 2 == 1)
+            t *= x;
+        x *= x;
+        n /= 2;
     }
-    for (i = 0; i < n; i++)
-    {
-        for (j = 0; j < n; j++)
-            cout << A[i][j] << "\t";
-        cout << endl;
-    }
-    return 0;
+    cout << t;
 }
+
+/*
+
+base case: 2 ^ 10
+
+1. x = 4 ^ 5
+
+2. t = 4;  16 ^ 2
+
+
+3. x = 256 ^ 1
+
+
+4. t = 256 * 4 = 1024
+
+
+
+log n = log n = 3.128263 = (3)
+*/

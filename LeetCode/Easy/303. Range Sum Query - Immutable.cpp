@@ -5,14 +5,15 @@
 #include <vector>
 using namespace std;
 
-class NumArray {
+class NumArray
+{
 public:
-    NumArray(vector<int>& nums) {
-        
+    NumArray(vector<int> &nums)
+    {
     }
-    
-    int sumRange(int left, int right) {
-        
+
+    int sumRange(int left, int right)
+    {
     }
 };
 

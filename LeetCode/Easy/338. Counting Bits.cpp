@@ -5,9 +5,11 @@
 #include <vector>
 using namespace std;
 
-class Solution {
+class Solution
+{
 public:
-    vector<int> countBits(int n) {
-        
+    vector<int> countBits(int n)
+    {
+        vector<int> bits(n + 1, 0);
     }
 };
