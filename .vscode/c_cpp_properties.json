@@ -1,0 +1,11 @@
+{
+  "configurations": [
+    {
+      "name": "Win32",
+      "defines": ["_DEBUG", "UNICODE", "_UNICODE"],
+      "intelliSenseMode": "windows-gcc-x86",
+      "includePath": ["${workspaceFolder}"]
+    }
+  ],
+  "version": 4
+}
